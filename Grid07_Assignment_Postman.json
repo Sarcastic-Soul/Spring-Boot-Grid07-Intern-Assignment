@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "Grid07 Intern Assignment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"authorId\": \"{{user_id}}\",\n    \"content\": \"Hello World!\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "8080",
+          "path": [ "api", "posts" ]
+        }
+      }
+    },
+    {
+      "name": "Add Comment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"authorId\": \"{{bot_id}}\",\n    \"content\": \"I am a bot comment\",\n    \"depthLevel\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts/{{post_id}}/comments",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "8080",
+          "path": [ "api", "posts", "{{post_id}}", "comments" ]
+        }
+      }
+    },
+    {
+      "name": "Like Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"userId\": \"{{user_id}}\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/posts/{{post_id}}/like",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "8080",
+          "path": [ "api", "posts", "{{post_id}}", "like" ]
+        }
+      }
+    }
+  ]
+}
